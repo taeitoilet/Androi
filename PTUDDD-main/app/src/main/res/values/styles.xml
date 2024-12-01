@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tạo một style cho Button để trông giống TextView -->
+    <style name="ButtonLikeTextView" parent="Widget.AppCompat.Button">
+        <item name="android:background">?android:attr/selectableItemBackground</item> <!-- Tùy chỉnh nền -->
+        <item name="android:textColor">@android:color/holo_blue_bright</item>  <!-- Màu chữ -->
+        <item name="android:padding">10dp</item>  <!-- Tùy chỉnh padding -->
+        <item name="android:textSize">16sp</item>  <!-- Tùy chỉnh kích thước chữ -->
+        <item name="android:gravity">center</item>  <!-- Tùy chỉnh trọng tâm chữ -->
+        <item name="android:textAllCaps">false</item>
+    </style>
+</resources>

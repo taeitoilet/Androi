@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.LoginActivity"
+    android:background="@color/white"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="108dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/LogoBoYTe" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHẦN MỀM ĐẶT LỊCH KHÁM"
+            android:textColor="@color/dark_blue"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="NHOM 9"
+            android:textColor="@color/red"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="60dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="200dp">
+            <EditText
+                android:id="@+id/txtUsername"
+                android:layout_width="322dp"
+                android:layout_height="54dp"
+                android:paddingHorizontal="10dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text=""
+                android:hint="Tài khoản"
+                android:drawableStart="@drawable/user_icon"
+                android:drawablePadding="5dp"
+                android:background="@drawable/custom_input"
+                />
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="200dp">
+            <EditText
+
+                android:id="@+id/txtPassword"
+                android:layout_width="322dp"
+                android:layout_height="54dp"
+                android:paddingHorizontal="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/baseline_lock"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:textSize="18dp"
+                android:text=""
+                android:hint="Mật khẩu"
+                />
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/txtError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/red"
+            android:text=""
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSubmit"
+            android:layout_marginTop="20dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Đăng nhập"
+            android:background="@drawable/custom_buttom"
+            />
+    </LinearLayout>
+</LinearLayout>

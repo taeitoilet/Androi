@@ -1,0 +1,6 @@
+username,password,fullName,gender,address,placeOfBirth,dateOfBirth,idCard,email,phone,role,studentCode,teacherId
+dtienanh,123,?? Ti?n Anh,Nam,Hà N?i,Hà N?i,19/09/2003,2021600552,dtienanh1909@gmail.com,865923203,student,2021600552,1
+nducdat,123,Nguy?n ??c ??t,Nam,Hà N?i,Hà N?i,19/09/2004,2021600553,abca@gmail.com,861233203,student,2021600552,1
+ntuandat,123,Nguy?n Tu?n ??t,Nam,Hà N?i,Hà N?i,19/09/2005,2021600554,dtienanh1909@gmail.com,865923203,student,2021600552,1
+nthuyentrang,123,Nguy?n Th? Huy?n Trang,N?,Hà N?i,Hà N?i,19/09/2006,2021600555,dtienanh1909@gmail.com,865923203,student,2021600552,1
+pgiavinh,123,Ph?m Gia Vinh,Nam,Hà N?i,Hà N?i,19/09/2007,2021600556,dtienanh1909@gmail.com,865923203,student,2021600552,1

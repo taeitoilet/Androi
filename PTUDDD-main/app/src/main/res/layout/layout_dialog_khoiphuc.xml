@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_corner"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:gravity="center"
+        android:background="@drawable/bg_blue_top_corner"
+        android:text="Thông tin chi tiết"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Tên bệnh nhân:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtStudenName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_weight="4"
+                android:hint="Đặng Phương Nam"
+                android:layout_marginStart="8dp"/>
+        </TableRow>
+
+        <!-- Student ID -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Mã bệnh nhân"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtStudentId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_weight="4"
+                android:hint="2021 xxx xxx"
+                android:layout_marginStart="8dp"/>
+        </TableRow>
+
+        <!-- Class -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Mã phiếu khám"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtClass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_weight="4"
+                android:hint="2021DHCNTTXx"
+                android:layout_marginStart="8dp"/>
+        </TableRow>
+
+        <!-- Location -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Địa điểm"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_weight="4"
+                android:hint="Điền địa điểm"
+                android:layout_marginStart="8dp"/>
+        </TableRow>
+
+        <!-- Time -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Thời gian"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_weight="4"
+                android:hint="8h30"
+                android:layout_marginStart="8dp"/>
+        </TableRow>
+
+        <!-- Reason -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Ghi chú"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtReason"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:hint="Khám răng"
+                android:maxLength="255"
+                android:textSize="20dp"
+                android:lines="2"
+                android:inputType="textMultiLine"
+                android:layout_marginStart="8dp"/>
+        </TableRow>
+
+        <!-- Submission Date -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Ngày gửi đơn"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtSubmissionDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_weight="4"
+                android:hint="16:52 - 05/05/2024"
+                android:layout_marginStart="8dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRestore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_corner"
+                android:text="Khôi phục"
+                android:layout_marginStart="8dp"/>
+        </TableRow>
+    </LinearLayout>
+
+</LinearLayout>
