@@ -132,16 +132,16 @@ public class User implements Serializable {
         return patientCode;
     }
 
-    public void setPatientCode(String studentCode) {
-        this.patientCode = studentCode;
+    public void setPatientCode(String patientCode) {
+        this.patientCode = patientCode;
     }
 
     public String getDoctorId() {
         return doctorId;
     }
 
-    public void setDoctorId(String teacherId) {
-        this.doctorId = teacherId;
+    public void setDoctorId(String doctorId) {
+        this.doctorId = doctorId;
     }
 
 }
