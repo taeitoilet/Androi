@@ -47,7 +47,6 @@ public class TestActivity extends AppCompatActivity {
         txtBirth.setText(user.getDateOfBirth());
         txtGender.setText(user.getGender());
         txtPlace.setText(user.getPlaceOfBirth());
-        txtIdCard.setText(user.getIdCard());
         txtSDT.setText(user.getPhone());
         txtEmail.setText(user.getEmail());
         txtAddress.setText(user.getAddress());

@@ -11,16 +11,15 @@ public class UserConstants {
 
     public static final String DATE_OF_BIRTH="dateOfBirth";
 
-    public static final String ID_CARD="idCard";
     public static final String EMAIL="email";
 
     public static final String PHONE="phone";
     public static final String ROLE="role";
 
-    public static final String TEACHER_ID="teacherId";
-    public static final String STUDENT_CODE="studentCode";
-    public static final String ROLE_STUDENT="student";
-    public static final String ROLE_TEACHER="teacher";
+    public static final String DOCTOR_ID="doctorId";
+    public static final String PATIENT_CODE="patientCode";
+    public static final String ROLE_PATIENT="patient";
+    public static final String ROLE_DOCTOR="doctor";
 
 
     //

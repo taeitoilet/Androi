@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 User user=userDAO.getUserByUsername(reqUsername);
                 if(user!=null&&user.getPassword().equals(reqPassword)){
                     Intent intent;
-                    if (user.getRole().equals(UserConstants.ROLE_STUDENT)){
+                    if (user.getRole().equals(UserConstants.ROLE_PATIENT)){
                         intent = new Intent(this, MainActivity.class);
                     } else {
                         intent = new Intent(this, MainActivity_GV.class);
@@ -72,10 +72,9 @@ public class LoginActivity extends AppCompatActivity {
         userDAO=new UserDAO(this);
         // Chay 1 lan xong comment lai
         User tanh=new User();
-        tanh.setUsername("nhungnt");
+        tanh.setUsername("hh");
         tanh.setPassword("123");
         tanh.setFullName("Dang Thi Nhung");
-        tanh.setIdCard("2021600552");
         tanh.setPhone("0865923203");
         tanh.setStudentCode("2021600552");
         tanh.setGender(UserConstants.GENDER_FEMALE);
@@ -83,7 +82,22 @@ public class LoginActivity extends AppCompatActivity {
         tanh.setDateOfBirth("19/09/2003");
         tanh.setAddress("Ha Noi");
         tanh.setPlaceOfBirth("Ha Noi");
-        tanh.setRole(UserConstants.ROLE_STUDENT);
+        tanh.setRole(UserConstants.ROLE_DOCTOR);
+        userDAO.addUser(tanh);
+        userDAO=new UserDAO(this);
+        // Chay 1 lan xong comment lai
+        User tanh1=new User();
+        tanh.setUsername("admin");
+        tanh.setPassword("123");
+        tanh.setFullName("Huan Hoa Hong");
+        tanh.setPhone("0865923203");
+        tanh.setStudentCode("2021600552");
+        tanh.setGender(UserConstants.GENDER_FEMALE);
+        tanh.setEmail("dtienanh1213@gmail.com");
+        tanh.setDateOfBirth("19/09/2003");
+        tanh.setAddress("Ha Noi");
+        tanh.setPlaceOfBirth("Ha Noi");
+        tanh.setRole(UserConstants.ROLE_DOCTOR);
         userDAO.addUser(tanh);
     }
 }
