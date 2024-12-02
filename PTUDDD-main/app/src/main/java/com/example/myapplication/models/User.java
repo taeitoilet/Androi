@@ -128,19 +128,19 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    public String getStudentCode() {
+    public String getPatientCode() {
         return patientCode;
     }
 
-    public void setStudentCode(String studentCode) {
+    public void setPatientCode(String studentCode) {
         this.patientCode = studentCode;
     }
 
-    public String getTeacherId() {
+    public String getDoctorId() {
         return doctorId;
     }
 
-    public void setTeacherId(String teacherId) {
+    public void setDoctorId(String teacherId) {
         this.doctorId = teacherId;
     }
 

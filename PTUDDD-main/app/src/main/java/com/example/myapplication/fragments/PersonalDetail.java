@@ -113,8 +113,8 @@ public class PersonalDetail extends Fragment {
                 user.setEmail(nextLine[8]);
                 user.setPhone(nextLine[9]);
                 user.setRole(nextLine[10]);
-                user.setStudentCode(nextLine[11]);
-                user.setTeacherId(nextLine[12]);
+                user.setPatientCode(nextLine[11]);
+                user.setDoctorId(nextLine[12]);
 
                 userDAO.addUser(user);
                 Log.i("ìnor", "readCsv: "+nextLine[0]);
@@ -144,7 +144,7 @@ public class PersonalDetail extends Fragment {
     private void initUser() {
         if (user != null) {
             txtFullname.setText(user.getFullName());
-            txtStudentIdCard.setText(user.getStudentCode());
+            txtStudentIdCard.setText(user.getPatientCode());
             txtBirth.setText(user.getDateOfBirth());
             txtGender.setText(user.getGender());
             txtPlace.setText(user.getPlaceOfBirth());

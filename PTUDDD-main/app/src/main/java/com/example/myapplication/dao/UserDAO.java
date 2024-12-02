@@ -34,8 +34,8 @@ public class UserDAO {
         values.put(UserConstants.EMAIL, user.getEmail());
         values.put(UserConstants.PHONE, user.getPhone());
         values.put(UserConstants.ROLE, user.getRole());
-        values.put(UserConstants.PATIENT_CODE, user.getStudentCode());
-        values.put(UserConstants.DOCTOR_ID, user.getTeacherId());
+        values.put(UserConstants.PATIENT_CODE, user.getPatientCode());
+        values.put(UserConstants.DOCTOR_ID, user.getDoctorId());
         db.insert(UserConstants.TABLE_USER, null, values);
 //        db.close();
     }
@@ -148,8 +148,8 @@ public class UserDAO {
         values.put(UserConstants.EMAIL, user.getEmail());
         values.put(UserConstants.PHONE, user.getPhone());
         values.put(UserConstants.ROLE, user.getRole());
-        values.put(UserConstants.PATIENT_CODE, user.getStudentCode());
-        values.put(UserConstants.DOCTOR_ID, user.getTeacherId());
+        values.put(UserConstants.PATIENT_CODE, user.getPatientCode());
+        values.put(UserConstants.DOCTOR_ID, user.getDoctorId());
         return db.update(UserConstants.TABLE_USER, values, "id" + " = ?", new String[]{String.valueOf(user.getId())});
     }
     public List<User> getAllUsers() {

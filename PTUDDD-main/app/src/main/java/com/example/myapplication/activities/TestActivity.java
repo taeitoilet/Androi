@@ -43,7 +43,7 @@ public class TestActivity extends AppCompatActivity {
     public void initUser(){
         User user=(User) getIntent().getSerializableExtra("user");
         txtFullname.setText(user.getFullName());
-        txtStudentIdCard.setText(user.getStudentCode());
+        txtStudentIdCard.setText(user.getPatientCode());
         txtBirth.setText(user.getDateOfBirth());
         txtGender.setText(user.getGender());
         txtPlace.setText(user.getPlaceOfBirth());

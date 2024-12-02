@@ -71,33 +71,19 @@ public class LoginActivity extends AppCompatActivity {
         getWidth();
         userDAO=new UserDAO(this);
         // Chay 1 lan xong comment lai
-        User tanh=new User();
-        tanh.setUsername("hh");
-        tanh.setPassword("123");
-        tanh.setFullName("Dang Thi Nhung");
-        tanh.setPhone("0865923203");
-        tanh.setStudentCode("2021600552");
-        tanh.setGender(UserConstants.GENDER_FEMALE);
-        tanh.setEmail("dtienanh1213@gmail.com");
-        tanh.setDateOfBirth("19/09/2003");
-        tanh.setAddress("Ha Noi");
-        tanh.setPlaceOfBirth("Ha Noi");
-        tanh.setRole(UserConstants.ROLE_DOCTOR);
-        userDAO.addUser(tanh);
-        userDAO=new UserDAO(this);
-        // Chay 1 lan xong comment lai
-        User tanh1=new User();
-        tanh.setUsername("admin");
-        tanh.setPassword("123");
-        tanh.setFullName("Huan Hoa Hong");
-        tanh.setPhone("0865923203");
-        tanh.setStudentCode("2021600552");
-        tanh.setGender(UserConstants.GENDER_FEMALE);
-        tanh.setEmail("dtienanh1213@gmail.com");
-        tanh.setDateOfBirth("19/09/2003");
-        tanh.setAddress("Ha Noi");
-        tanh.setPlaceOfBirth("Ha Noi");
-        tanh.setRole(UserConstants.ROLE_DOCTOR);
-        userDAO.addUser(tanh);
+//        User tanh=new User();
+//        tanh.setUsername("admin");
+//        tanh.setPassword("123");
+//        tanh.setFullName("huan hoa hong");
+//        tanh.setPhone("0865923203");
+//        tanh.setDoctorId("12345678");
+//        tanh.setGender(UserConstants.GENDER_FEMALE);
+//        tanh.setEmail("dtienanh1213@gmail.com");
+//        tanh.setDateOfBirth("19/09/2003");
+//        tanh.setAddress("Ha Noi");
+//        tanh.setPlaceOfBirth("Ha Noi");
+//        tanh.setRole(UserConstants.ROLE_DOCTOR);
+//        userDAO.addUser(tanh);
+
     }
 }
