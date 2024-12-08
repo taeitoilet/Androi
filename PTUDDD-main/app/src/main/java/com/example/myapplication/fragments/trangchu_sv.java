@@ -120,7 +120,7 @@ public class trangchu_sv extends Fragment {
             }
 
             for (User user : users) {
-                if (user.getRole().equals(UserConstants.ROLE_TEACHER)) {
+                if (user.getRole().equals(UserConstants.ROLE_DOCTOR)) {
                     double averageRating = userDAO.calculateAverageRatingForUser1();
                     txtDanhGia.setText(String.valueOf(averageRating));
                     break; // If you only want to display the first teacher found

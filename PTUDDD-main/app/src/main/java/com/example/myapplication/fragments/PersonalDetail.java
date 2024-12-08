@@ -110,12 +110,11 @@ public class PersonalDetail extends Fragment {
                 user.setAddress(nextLine[4]);
                 user.setPlaceOfBirth(nextLine[5]);
                 user.setDateOfBirth(nextLine[6]);
-                user.setIdCard(nextLine[7]);
                 user.setEmail(nextLine[8]);
                 user.setPhone(nextLine[9]);
                 user.setRole(nextLine[10]);
-                user.setStudentCode(nextLine[11]);
-                user.setTeacherId(nextLine[12]);
+                user.setPatientCode(nextLine[11]);
+                user.setDoctorId(nextLine[12]);
 
                 userDAO.addUser(user);
                 Log.i("ìnor", "readCsv: "+nextLine[0]);
@@ -145,15 +144,14 @@ public class PersonalDetail extends Fragment {
     private void initUser() {
         if (user != null) {
             txtFullname.setText(user.getFullName());
-            txtStudentIdCard.setText(user.getStudentCode());
+            txtStudentIdCard.setText(user.getPatientCode());
             txtBirth.setText(user.getDateOfBirth());
             txtGender.setText(user.getGender());
             txtPlace.setText(user.getPlaceOfBirth());
-            txtIdCard.setText(user.getIdCard());
             txtSDT.setText(user.getPhone());
             txtEmail.setText(user.getEmail());
             txtAddress.setText(user.getAddress());
-            if(user.getRole().equals(UserConstants.ROLE_STUDENT)){
+            if(user.getRole().equals(UserConstants.ROLE_PATIENT)){
                 txtRating.setText("");
                 imgStar.setVisibility(View.INVISIBLE);
                 btnImportData.setVisibility(View.INVISIBLE);

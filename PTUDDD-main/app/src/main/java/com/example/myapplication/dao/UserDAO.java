@@ -21,8 +21,7 @@ public class UserDAO {
         dbHelper = new MyDatabaseHelper(context);
         db = dbHelper.getWritableDatabase();
     }
-    public void addUser(User user) {
-
+    public long addUser(User user) {
         ContentValues values = new ContentValues();
         values.put(UserConstants.USERNAME, user.getUsername());
         values.put(UserConstants.PASSWORD, user.getPassword());
@@ -31,17 +30,18 @@ public class UserDAO {
         values.put(UserConstants.ADDRESS, user.getAddress());
         values.put(UserConstants.PLACE_OF_BIRTH, user.getPlaceOfBirth());
         values.put(UserConstants.DATE_OF_BIRTH, user.getDateOfBirth());
-        values.put(UserConstants.ID_CARD, user.getIdCard());
         values.put(UserConstants.EMAIL, user.getEmail());
         values.put(UserConstants.PHONE, user.getPhone());
         values.put(UserConstants.ROLE, user.getRole());
-        values.put(UserConstants.STUDENT_CODE, user.getStudentCode());
-        values.put(UserConstants.TEACHER_ID, user.getTeacherId());
-        db.insert(UserConstants.TABLE_USER, null, values);
-//        db.close();
+        values.put(UserConstants.PATIENT_CODE, user.getPatientCode());
+        values.put(UserConstants.DOCTOR_ID, user.getDoctorId());
+
+        // Chèn vào bảng và trả về ID của bản ghi mới
+        return db.insert(UserConstants.TABLE_USER, null, values);
     }
+
     public User getUserByUsername(String username) {
-        Cursor cursor = db.query(UserConstants.TABLE_USER, new String[]{"id", UserConstants.USERNAME, UserConstants.PASSWORD, UserConstants.FULL_NAME, UserConstants.GENDER, UserConstants.ADDRESS, UserConstants.PLACE_OF_BIRTH, UserConstants.DATE_OF_BIRTH, UserConstants.ID_CARD, UserConstants.EMAIL, UserConstants.PHONE, UserConstants.ROLE, UserConstants.STUDENT_CODE, UserConstants.TEACHER_ID},
+        Cursor cursor = db.query(UserConstants.TABLE_USER, new String[]{"id", UserConstants.USERNAME, UserConstants.PASSWORD, UserConstants.FULL_NAME, UserConstants.GENDER, UserConstants.ADDRESS, UserConstants.PLACE_OF_BIRTH, UserConstants.DATE_OF_BIRTH,  UserConstants.EMAIL, UserConstants.PHONE, UserConstants.ROLE, UserConstants.PATIENT_CODE, UserConstants.DOCTOR_ID},
                 UserConstants.USERNAME + "=?", new String[]{username}, null, null, null, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -57,8 +57,7 @@ public class UserDAO {
                         cursor.getString(9),
                         cursor.getString(10),
                         cursor.getString(11),
-                        cursor.getString(12),
-                        cursor.getString(13)
+                        cursor.getString(12)
                 );
                 user.setId(cursor.getInt(0));
 //                db.close();
@@ -77,8 +76,8 @@ public class UserDAO {
         try {
             cursor = db.query(
                     UserConstants.TABLE_USER,
-                    new String[]{"id", UserConstants.USERNAME, UserConstants.PASSWORD, UserConstants.FULL_NAME, UserConstants.GENDER, UserConstants.ADDRESS, UserConstants.PLACE_OF_BIRTH, UserConstants.DATE_OF_BIRTH, UserConstants.ID_CARD, UserConstants.EMAIL, UserConstants.PHONE, UserConstants.ROLE, UserConstants.STUDENT_CODE, UserConstants.TEACHER_ID},
-                    UserConstants.STUDENT_CODE + "=?",
+                    new String[]{"id", UserConstants.USERNAME, UserConstants.PASSWORD, UserConstants.FULL_NAME, UserConstants.GENDER, UserConstants.ADDRESS, UserConstants.PLACE_OF_BIRTH, UserConstants.DATE_OF_BIRTH,  UserConstants.EMAIL, UserConstants.PHONE, UserConstants.ROLE, UserConstants.PATIENT_CODE, UserConstants.DOCTOR_ID},
+                    UserConstants.PATIENT_CODE + "=?",
                     new String[]{studentId},
                     null, null, null, null
             );
@@ -86,7 +85,7 @@ public class UserDAO {
             if (cursor != null && cursor.moveToFirst()) {
                 String id = cursor.getString(cursor.getColumnIndexOrThrow("id"));
                 String username = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.USERNAME));
-                String studentIdFromDb = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.STUDENT_CODE));
+                String studentIdFromDb = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.PATIENT_CODE));
                 String email = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.EMAIL));
                 String password = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.PASSWORD));
                 String fullName = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.FULL_NAME));
@@ -94,11 +93,10 @@ public class UserDAO {
                 String address = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.ADDRESS));
                 String placeOfBirth = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.PLACE_OF_BIRTH));
                 String dateOfBirth = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.DATE_OF_BIRTH));
-                String idCard = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.ID_CARD));
                 String phone = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.PHONE));
                 String role = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.ROLE));
-                String teacherId = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.TEACHER_ID));
-                return new User(username, password, fullName, gender, address, placeOfBirth, dateOfBirth, idCard, email,phone, role, studentIdFromDb,teacherId);
+                String doctorId = cursor.getString(cursor.getColumnIndexOrThrow(UserConstants.DOCTOR_ID));
+                return new User(username, password, fullName, gender, address, placeOfBirth, dateOfBirth, email,phone, role, studentIdFromDb,doctorId);
             } else {
                 return null;
             }
@@ -110,7 +108,7 @@ public class UserDAO {
     }
 
     public User getUserById(int userId) {
-        Cursor cursor = db.query(UserConstants.TABLE_USER, new String[]{"id", UserConstants.USERNAME, UserConstants.PASSWORD, UserConstants.FULL_NAME, UserConstants.GENDER, UserConstants.ADDRESS, UserConstants.PLACE_OF_BIRTH, UserConstants.DATE_OF_BIRTH, UserConstants.ID_CARD, UserConstants.EMAIL, UserConstants.PHONE, UserConstants.ROLE, UserConstants.STUDENT_CODE, UserConstants.TEACHER_ID},
+        Cursor cursor = db.query(UserConstants.TABLE_USER, new String[]{"id", UserConstants.USERNAME, UserConstants.PASSWORD, UserConstants.FULL_NAME, UserConstants.GENDER, UserConstants.ADDRESS, UserConstants.PLACE_OF_BIRTH, UserConstants.DATE_OF_BIRTH,  UserConstants.EMAIL, UserConstants.PHONE, UserConstants.ROLE, UserConstants.PATIENT_CODE, UserConstants.DOCTOR_ID},
                 "id = ?", new String[]{String.valueOf(userId)}, null, null, null, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -126,8 +124,7 @@ public class UserDAO {
                         cursor.getString(9),
                         cursor.getString(10),
                         cursor.getString(11),
-                        cursor.getString(12),
-                        cursor.getString(13)
+                        cursor.getString(12)
                 );
                 user.setId(cursor.getInt(0));
                 return user;
@@ -149,12 +146,11 @@ public class UserDAO {
         values.put(UserConstants.ADDRESS, user.getAddress());
         values.put(UserConstants.PLACE_OF_BIRTH, user.getPlaceOfBirth());
         values.put(UserConstants.DATE_OF_BIRTH, user.getDateOfBirth());
-        values.put(UserConstants.ID_CARD, user.getIdCard());
         values.put(UserConstants.EMAIL, user.getEmail());
         values.put(UserConstants.PHONE, user.getPhone());
         values.put(UserConstants.ROLE, user.getRole());
-        values.put(UserConstants.STUDENT_CODE, user.getStudentCode());
-        values.put(UserConstants.TEACHER_ID, user.getTeacherId());
+        values.put(UserConstants.PATIENT_CODE, user.getPatientCode());
+        values.put(UserConstants.DOCTOR_ID, user.getDoctorId());
         return db.update(UserConstants.TABLE_USER, values, "id" + " = ?", new String[]{String.valueOf(user.getId())});
     }
     public List<User> getAllUsers() {
@@ -177,8 +173,7 @@ public class UserDAO {
                         cursor.getString(9),
                         cursor.getString(10),
                         cursor.getString(11),
-                        cursor.getString(12),
-                        cursor.getString(13)
+                        cursor.getString(12)
                 );
                 user.setId(cursor.getInt(0));
                 userList.add(user);

@@ -9,7 +9,7 @@ import com.example.myapplication.constants.UserConstants;
 
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "bookingApp";
+    private static final String DATABASE_NAME = "database";
     private static final int DATABASE_VERSION = 1;
 
     private static MyDatabaseHelper instance;
@@ -36,13 +36,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 UserConstants.ADDRESS + " TEXT, " +
                 UserConstants.PLACE_OF_BIRTH + " TEXT, " +
                 UserConstants.DATE_OF_BIRTH + " DATE, " +
-                UserConstants.ID_CARD + " TEXT, " +
                 UserConstants.EMAIL + " TEXT, " +
                 UserConstants.PHONE + " TEXT, " +
                 UserConstants.ROLE + " TEXT," +
-                UserConstants.STUDENT_CODE + " TEXT," +
-                UserConstants.TEACHER_ID + " TEXT, " +
-                "FOREIGN KEY("+UserConstants.TEACHER_ID+ ") REFERENCES "+UserConstants.TABLE_USER+"(id)" +
+                UserConstants.PATIENT_CODE + " TEXT," +
+                UserConstants.DOCTOR_ID + " TEXT, " +
+                "FOREIGN KEY("+UserConstants.DOCTOR_ID+ ") REFERENCES "+UserConstants.TABLE_USER+"(id)" +
                 ")";
         db.execSQL(createUserTable);
 

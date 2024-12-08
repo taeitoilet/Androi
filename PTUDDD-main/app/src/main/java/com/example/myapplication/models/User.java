@@ -12,19 +12,18 @@ public class User implements Serializable {
     private String address;
     private String placeOfBirth;
     private String dateOfBirth;
-    private String idCard;
     private String email;
     private String phone;
     private String role;
 
-    private String studentCode;
-    private String teacherId;
+    private String patientCode;
+    private String doctorId;
 
     // Constructors
     public User() {
     }
 
-    public User(String username, String password, String fullName, String gender, String address, String placeOfBirth, String dateOfBirth, String idCard, String email, String phone, String role, String studentCode, String teacherId) {
+    public User(String username, String password, String fullName, String gender, String address, String placeOfBirth, String dateOfBirth,  String email, String phone, String role, String patientCode, String doctorId) {
         this.username = username;
         this.password = password;
         this.fullName = fullName;
@@ -32,12 +31,11 @@ public class User implements Serializable {
         this.address = address;
         this.placeOfBirth = placeOfBirth;
         this.dateOfBirth = dateOfBirth;
-        this.idCard = idCard;
         this.email = email;
         this.phone = phone;
         this.role = role;
-        this.studentCode = studentCode;
-        this.teacherId = teacherId;
+        this.patientCode = patientCode;
+        this.doctorId = doctorId;
     }
 
     public void setId(int id) {
@@ -104,13 +102,7 @@ public class User implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getIdCard() {
-        return idCard;
-    }
 
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
-    }
 
     public String getEmail() {
         return email;
@@ -136,20 +128,20 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    public String getStudentCode() {
-        return studentCode;
+    public String getPatientCode() {
+        return patientCode;
     }
 
-    public void setStudentCode(String studentCode) {
-        this.studentCode = studentCode;
+    public void setPatientCode(String patientCode) {
+        this.patientCode = patientCode;
     }
 
-    public String getTeacherId() {
-        return teacherId;
+    public String getDoctorId() {
+        return doctorId;
     }
 
-    public void setTeacherId(String teacherId) {
-        this.teacherId = teacherId;
+    public void setDoctorId(String doctorId) {
+        this.doctorId = doctorId;
     }
 
 }
