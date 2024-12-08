@@ -38,7 +38,6 @@ public class Adapter_gv extends RecyclerView.Adapter<Adapter_gv.MyViewHolder> {
             holder.txtNgay.setText(currentEmp.getDate());
             holder.txtTenSv.setText(user.getFullName());
             holder.txtGio.setText(currentEmp.getTime());
-            holder.txtMaSV.setText(user.getIdCard());
             holder.txtLopSV.setText("2021DHCNTT01"); // This should ideally come from user data
             holder.edtNoiDungSV.setText(currentEmp.getContent());
         }

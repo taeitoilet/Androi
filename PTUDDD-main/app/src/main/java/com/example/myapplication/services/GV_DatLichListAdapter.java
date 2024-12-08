@@ -120,7 +120,6 @@ public class GV_DatLichListAdapter extends ArrayAdapter<Booking> {
         UserDAO userDAO = new UserDAO(getContext());
         User user = userDAO.getUserById(booking.getUserId());
         txtStudentName.setText(user.getFullName());
-        txtStudentId.setText(String.valueOf(user.getIdCard()));
         txtClass.setText("2021DHCNTT01");  // Placeholder class, replace if needed
         txtLocation.setText("Phòng 601 - A1");
         txtTime.setText(booking.getTime());

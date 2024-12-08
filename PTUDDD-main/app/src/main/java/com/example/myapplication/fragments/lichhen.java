@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.applandeo.materialcalendarview.EventDay;
@@ -68,6 +69,8 @@ public class lichhen extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewSV);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+
+
         // Thiết lập listener cho CalendarView
         calendarView.setOnDayClickListener(eventDay -> {
             Calendar selectedDate = eventDay.getCalendar();
@@ -78,8 +81,10 @@ public class lichhen extends Fragment {
             ArrayList<Booking> bookings = (ArrayList<Booking>) bookingDAO.getBookingsByDateAndUser(formattedDate, user.getId());
 
             // Cập nhật adapter với danh sách mới
-            itemAdapter = new Adapter(bookings);
+            ArrayList<Booking> bookings_1 = (ArrayList<Booking>) bookingDAO.getBookingsByDateAndUser(formattedDate, user.getId());
+            itemAdapter = new Adapter(bookings_1, bookingDAO); // Truyền DAO
             recyclerView.setAdapter(itemAdapter);
+
         });
 
         BookingDAO bookingDAO = new BookingDAO(getContext());
@@ -138,4 +143,7 @@ public class lichhen extends Fragment {
 
         return formattedDay + "/" + formattedMonth + "/" + year;
     }
+
+
+
 }

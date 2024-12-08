@@ -411,4 +411,9 @@ public class BookingDAO {
         }
     }
 
+    public boolean deleteBookingByUser(int bookingId) {
+        int rowsAffected = db.delete("bookings", "id = ?", new String[]{String.valueOf(bookingId)});
+        return rowsAffected > 0;
+    }
+
 }

@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="108dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/LogoBoYTe" />
+            app:srcCompat="@drawable/logoboyte" />
 
     </LinearLayout>
 
