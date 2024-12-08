@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
                 User user = userDAO.getUserByUsername(reqUsername);
                 if (user != null && user.getPassword().equals(reqPassword)) {
                     Intent intent;
-
                     if (user.getRole().equals(UserConstants.ROLE_PATIENT)){
                         intent = new Intent(this, MainActivity.class);
                     } else {

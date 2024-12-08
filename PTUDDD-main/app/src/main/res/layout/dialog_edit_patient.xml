@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/bg_dialog">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sửa thông tin bệnh nhân"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Họ và tên -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Họ và tên"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Ngày sinh -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtDateOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ngày sinh"
+                    android:focusable="false"
+                    android:drawableEnd="@android:drawable/ic_menu_my_calendar"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Giới tính -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giới tính"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroupGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/radioMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nam"
+                    android:layout_marginEnd="16dp"/>
+
+                <RadioButton
+                    android:id="@+id/radioFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nữ"/>
+            </RadioGroup>
+
+            <!-- Nơi sinh -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPlaceOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nơi sinh"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Số điện thoại -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Số điện thoại"
+                    android:inputType="phone"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Email -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Địa chỉ -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Địa chỉ"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Hủy"
+            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cập nhật"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -13,6 +13,7 @@ public class User implements Serializable {
     private String placeOfBirth;
     private String dateOfBirth;
     private String email;
+
     private String phone;
     private String role;
 

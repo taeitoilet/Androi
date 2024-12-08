@@ -311,6 +311,14 @@
                 </LinearLayout>
 
             </LinearLayout>
+            
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Sửa thông tin"
+                android:visibility="visible" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnImportData"

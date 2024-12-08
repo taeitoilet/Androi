@@ -36,6 +36,9 @@ public class UserDAO {
         values.put(UserConstants.PATIENT_CODE, user.getPatientCode());
         values.put(UserConstants.DOCTOR_ID, user.getDoctorId());
 
+        db.insert(UserConstants.TABLE_USER, null, values);
+
+
         // Chèn vào bảng và trả về ID của bản ghi mới
         return db.insert(UserConstants.TABLE_USER, null, values);
 
@@ -141,22 +144,41 @@ public class UserDAO {
         db.delete(UserConstants.TABLE_USER, "id" + " = ?", new String[]{String.valueOf(userId)});
 //        db.close();
     }
-    public int updateUser(User user) {
-        ContentValues values = new ContentValues();
-        values.put(UserConstants.USERNAME, user.getUsername());
-        values.put(UserConstants.PASSWORD, user.getPassword());
-        values.put(UserConstants.FULL_NAME, user.getFullName());
-        values.put(UserConstants.GENDER, user.getGender());
-        values.put(UserConstants.ADDRESS, user.getAddress());
-        values.put(UserConstants.PLACE_OF_BIRTH, user.getPlaceOfBirth());
-        values.put(UserConstants.DATE_OF_BIRTH, user.getDateOfBirth());
-        values.put(UserConstants.EMAIL, user.getEmail());
-        values.put(UserConstants.PHONE, user.getPhone());
-        values.put(UserConstants.ROLE, user.getRole());
-        values.put(UserConstants.PATIENT_CODE, user.getPatientCode());
-        values.put(UserConstants.DOCTOR_ID, user.getDoctorId());
-        return db.update(UserConstants.TABLE_USER, values, "id" + " = ?", new String[]{String.valueOf(user.getId())});
+
+    //Manh
+    public boolean updateUser(User user) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();  
+        values.put("fullName", user.getFullName());
+        values.put("dateOfBirth", user.getDateOfBirth());
+        values.put("gender", user.getGender());
+        values.put("placeOfBirth", user.getPlaceOfBirth());
+        values.put("phone", user.getPhone());
+        values.put("email", user.getEmail());
+        values.put("address", user.getAddress());
+
+        int rowsAffected = db.update("users", values, "username = ?", 
+        new String[]{user.getUsername()});
+    
+        return rowsAffected > 0;
+
+//        values.put(UserConstants.USERNAME, user.getUsername());
+//        values.put(UserConstants.PASSWORD, user.getPassword());
+//        values.put(UserConstants.FULL_NAME, user.getFullName());
+ //       values.put(UserConstants.GENDER, user.getGender());
+//        values.put(UserConstants.ADDRESS, user.getAddress());
+//        values.put(UserConstants.PLACE_OF_BIRTH, user.getPlaceOfBirth());
+//        values.put(UserConstants.DATE_OF_BIRTH, user.getDateOfBirth());
+//        values.put(UserConstants.EMAIL, user.getEmail());
+//        values.put(UserConstants.PHONE, user.getPhone());
+//        values.put(UserConstants.ROLE, user.getRole());
+ //       values.put(UserConstants.PATIENT_CODE, user.getPatientCode());
+//        values.put(UserConstants.DOCTOR_ID, user.getDoctorId());
+//        return db.update(UserConstants.TABLE_USER, values, "id" + " = ?", new String[]{String.valueOf(user.getId())});
+
     }
+    //Manh
+
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<>();
         String selectQuery = "SELECT * FROM " + UserConstants.TABLE_USER;
