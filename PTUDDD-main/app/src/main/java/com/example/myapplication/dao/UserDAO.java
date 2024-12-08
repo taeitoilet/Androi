@@ -38,6 +38,10 @@ public class UserDAO {
 
         // Chèn vào bảng và trả về ID của bản ghi mới
         return db.insert(UserConstants.TABLE_USER, null, values);
+
+//        db.insert(UserConstants.TABLE_USER, null, values);
+//        db.close();
+
     }
 
     public User getUserByUsername(String username) {

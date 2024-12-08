@@ -47,7 +47,8 @@ public class LoginActivity extends AppCompatActivity {
                 User user = userDAO.getUserByUsername(reqUsername);
                 if (user != null && user.getPassword().equals(reqPassword)) {
                     Intent intent;
-                    if (user.getRole().equals(UserConstants.ROLE_PATIENT)) {
+
+                    if (user.getRole().equals(UserConstants.ROLE_PATIENT)){
                         intent = new Intent(this, MainActivity.class);
                     } else {
                         intent = new Intent(this, MainActivity_GV.class);
@@ -85,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void init() {
         getWidth();
+
         userDAO = new UserDAO(this);
         // Cấu hình thêm user
         User tanh = new User();
@@ -100,5 +102,6 @@ public class LoginActivity extends AppCompatActivity {
         tanh.setPlaceOfBirth("Ha Noi");
         tanh.setRole(UserConstants.ROLE_PATIENT);
         userDAO.addUser(tanh);
+
     }
 }
