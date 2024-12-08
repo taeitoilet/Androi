@@ -21,8 +21,7 @@ public class UserDAO {
         dbHelper = new MyDatabaseHelper(context);
         db = dbHelper.getWritableDatabase();
     }
-    public void addUser(User user) {
-
+    public long addUser(User user) {
         ContentValues values = new ContentValues();
         values.put(UserConstants.USERNAME, user.getUsername());
         values.put(UserConstants.PASSWORD, user.getPassword());
@@ -36,9 +35,18 @@ public class UserDAO {
         values.put(UserConstants.ROLE, user.getRole());
         values.put(UserConstants.PATIENT_CODE, user.getPatientCode());
         values.put(UserConstants.DOCTOR_ID, user.getDoctorId());
+
         db.insert(UserConstants.TABLE_USER, null, values);
+
+
+        // Chèn vào bảng và trả về ID của bản ghi mới
+        return db.insert(UserConstants.TABLE_USER, null, values);
+
+//        db.insert(UserConstants.TABLE_USER, null, values);
 //        db.close();
+
     }
+
     public User getUserByUsername(String username) {
         Cursor cursor = db.query(UserConstants.TABLE_USER, new String[]{"id", UserConstants.USERNAME, UserConstants.PASSWORD, UserConstants.FULL_NAME, UserConstants.GENDER, UserConstants.ADDRESS, UserConstants.PLACE_OF_BIRTH, UserConstants.DATE_OF_BIRTH,  UserConstants.EMAIL, UserConstants.PHONE, UserConstants.ROLE, UserConstants.PATIENT_CODE, UserConstants.DOCTOR_ID},
                 UserConstants.USERNAME + "=?", new String[]{username}, null, null, null, null);
@@ -140,8 +148,7 @@ public class UserDAO {
     //Manh
     public boolean updateUser(User user) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-    
+        ContentValues values = new ContentValues();  
         values.put("fullName", user.getFullName());
         values.put("dateOfBirth", user.getDateOfBirth());
         values.put("gender", user.getGender());
@@ -154,6 +161,21 @@ public class UserDAO {
         new String[]{user.getUsername()});
     
         return rowsAffected > 0;
+
+//        values.put(UserConstants.USERNAME, user.getUsername());
+//        values.put(UserConstants.PASSWORD, user.getPassword());
+//        values.put(UserConstants.FULL_NAME, user.getFullName());
+ //       values.put(UserConstants.GENDER, user.getGender());
+//        values.put(UserConstants.ADDRESS, user.getAddress());
+//        values.put(UserConstants.PLACE_OF_BIRTH, user.getPlaceOfBirth());
+//        values.put(UserConstants.DATE_OF_BIRTH, user.getDateOfBirth());
+//        values.put(UserConstants.EMAIL, user.getEmail());
+//        values.put(UserConstants.PHONE, user.getPhone());
+//        values.put(UserConstants.ROLE, user.getRole());
+ //       values.put(UserConstants.PATIENT_CODE, user.getPatientCode());
+//        values.put(UserConstants.DOCTOR_ID, user.getDoctorId());
+//        return db.update(UserConstants.TABLE_USER, values, "id" + " = ?", new String[]{String.valueOf(user.getId())});
+
     }
     //Manh
 
